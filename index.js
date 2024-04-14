@@ -1,11 +1,11 @@
-let canvas = document.querySelector("canvas");
-let secondsCount = document.querySelector(".seconds");
-let level = document.querySelector(".grade");
-let context = canvas.getContext("2d");
-let pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
+var canvas = document.querySelector("canvas");
+var secondsCount = document.querySelector(".seconds");
+var level = document.querySelector(".grade");
+var context = canvas.getContext("2d");
+var pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
 
 
-const levels = {
+var levels = {
   5: "Sr Assistant",
   10: "Jr Honoror",
   15: "Master Honoror",
@@ -26,27 +26,27 @@ const levels = {
   30500: "Anunnaki"
 }
 
-const startTime = Date.now();
+var startTime = Date.now();
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 context.translate(window.innerWidth / 2, window.innerHeight / 2);
 
-const image = new Image();
+var image = new Image();
 image.src = "./assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
 
-const loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
-const offsetDistance = 120;
-let currentOffset = 0;
+var loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
+var offsetDistance = 120;
+var currentOffset = 0;
 
-const movementRange = 200
+var movementRange = 200
 
-const mouseOffset = {
+var mouseOffset = {
   x: 0,
   y: 0
 }
 
-const movementOffset = {
+var movementOffset = {
   x: 0,
   y: 0
 }
@@ -66,7 +66,7 @@ window.addEventListener('mousemove', onMouseMove)
 
 function draw(offset, loopCount) {
 
-  let currentPercentage = (loopingPugs - loopCount) / loopingPugs
+  var currentPercentage = (loopingPugs - loopCount) / loopingPugs
   context.drawImage(
     image,
     -pugDimensions.width / 2 - offset/2 + (movementOffset.x * currentPercentage),
@@ -90,7 +90,7 @@ function loopDraw() {
   movementOffset.x = lerp(movementOffset.x, mouseOffset.x, 0.05)
   movementOffset.y = lerp(movementOffset.y, mouseOffset.y, 0.05)
 
-  for (let i = loopingPugs; i >= 1; i--) {
+  for (var i = loopingPugs; i >= 1; i--) {
     draw(i * offsetDistance + currentOffset, i);
   }
 
