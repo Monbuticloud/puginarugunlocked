@@ -1,8 +1,8 @@
-const canvas = document.querySelector("canvas");
-const secondsCount = document.querySelector(".seconds");
-const level = document.querySelector(".grade");
-const context = canvas.getContext("2d");
-const pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
+let canvas = document.querySelector("canvas");
+let secondsCount = document.querySelector(".seconds");
+let level = document.querySelector(".grade");
+let context = canvas.getContext("2d");
+let pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
 
 
 const levels = {
