@@ -33,7 +33,7 @@ canvas.height = window.innerHeight;
 context.translate(window.innerWidth / 2, window.innerHeight / 2);
 
 var image = new Image();
-image.src = "./assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
+image.src = "https://github.com/Monbuticloud/puginarugunlocked/blob/6b1c40f37dba3d204a777874b59f86e273438619/assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
 
 var loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
 var offsetDistance = 120;
