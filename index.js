@@ -1,11 +1,11 @@
-var canvas = document.querySelector("canvas");
+const canvas = document.querySelector("canvas");
 var secondsCount = document.querySelector(".seconds");
-var level = document.querySelector(".grade");
-var context = canvas.getContext("2d");
-var pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
+const level = document.querySelector(".grade");
+const context = canvas.getContext("2d");
+const pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
 
 
-var levels = {
+const levels = {
   5: "Sr Assistant",
   10: "Jr Honoror",
   15: "Master Honoror",
@@ -26,27 +26,27 @@ var levels = {
   30500: "Anunnaki"
 }
 
-var startTime = Date.now();
+const startTime = Date.now();
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 context.translate(window.innerWidth / 2, window.innerHeight / 2);
 
-var image = new Image();
-image.src = "https://github.com/Monbuticloud/puginarugunlocked/blob/6b1c40f37dba3d204a777874b59f86e273438619/assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
+const image = new Image();
+image.src = "./assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
 
-var loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
-var offsetDistance = 120;
-var currentOffset = 0;
+const loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
+const offsetDistance = 120;
+let currentOffset = 0;
 
-var movementRange = 200
+const movementRange = 200
 
-var mouseOffset = {
+const mouseOffset = {
   x: 0,
   y: 0
 }
 
-var movementOffset = {
+const movementOffset = {
   x: 0,
   y: 0
 }
@@ -66,7 +66,7 @@ window.addEventListener('mousemove', onMouseMove)
 
 function draw(offset, loopCount) {
 
-  var currentPercentage = (loopingPugs - loopCount) / loopingPugs
+  let currentPercentage = (loopingPugs - loopCount) / loopingPugs
   context.drawImage(
     image,
     -pugDimensions.width / 2 - offset/2 + (movementOffset.x * currentPercentage),
@@ -90,7 +90,7 @@ function loopDraw() {
   movementOffset.x = lerp(movementOffset.x, mouseOffset.x, 0.05)
   movementOffset.y = lerp(movementOffset.y, mouseOffset.y, 0.05)
 
-  for (var i = loopingPugs; i >= 1; i--) {
+  for (let i = loopingPugs; i >= 1; i--) {
     draw(i * offsetDistance + currentOffset, i);
   }
 
